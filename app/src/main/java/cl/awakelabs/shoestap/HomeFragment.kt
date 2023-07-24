@@ -37,9 +37,10 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
+        initAdapter()
         return binding.root
 
-        initAdapter()
+
     }
 
     private fun initAdapter() {

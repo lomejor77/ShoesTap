@@ -22,7 +22,7 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listaCalzado[position]
-        holder.bind(item)
+        holder.binding(item)
     }
 
 
