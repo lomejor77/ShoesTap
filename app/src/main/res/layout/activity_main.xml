@@ -10,13 +10,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="405dp"
+        android:layout_height="651dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
         tools:ignore="UselessParent">
 
         <RelativeLayout
@@ -29,13 +30,14 @@
             tools:ignore="UselessLeaf">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="false"
                 android:layout_marginLeft="282dp"
                 android:contentDescription="@string/logo"
-                android:src="@drawable/logoshoes">
+                android:src="@drawable/logoshoes"
+                tools:ignore="RtlHardcoded">
 
             </ImageView>
 
@@ -59,12 +61,26 @@
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="249dp"
+            android:layout_height="match_parent"
             android:layout_marginEnd="1dp"
             app:navGraph="@navigation/nav_graph"
             tools:ignore="TextSizeCheck" />
 
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#01CC6A"
+        android:src="@drawable/baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.466"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

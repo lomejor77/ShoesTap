@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.awakelabs.shoestap.Adapter.*
 import cl.awakelabs.shoestap.databinding.ItemBinding
 import coil.load
+import com.squareup.picasso.Picasso
 
 class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     var listaCalzado = mutableListOf<Calzado>()
-    var callBack: Shoes? = null
+    //var callBack: Shoes? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,15 +24,21 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listaCalzado[position]
         holder.binding(item)
+
     }
 
 
 
     inner class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+
         fun binding(calzado: Calzado) {
             binding.txName.text = calzado.name
             binding.imageView.load(calzado.url)
             binding.txPrice.text = calzado.price.toString()
+            binding.cardProduct.setOnClickListener {
+
+            }
 
         }
 
