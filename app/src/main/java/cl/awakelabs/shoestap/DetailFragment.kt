@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cl.awakelabs.shoestap.databinding.FragmentDetailBinding
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Picasso.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,27 +21,36 @@ private const val ARG_PARAM2 = "param2"
  */
 class DetailFragment : Fragment() {
     // TODO: Rename and change types of parameters
+    lateinit var binding: FragmentDetailBinding
     private var param1: String? = null
     private var param2: String? = null
+    private var param3: String? = null
 
-    lateinit var binding: FragmentDetailBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            param1 = it.getString("name")
+            param2 = it.getString("url")
+            param3 = it.getString("price")
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
-        // Inflate the layout for this fragment
-
+        initAdapter()
         return binding.root
+        }
+
+    private fun initAdapter() {
+        binding.textName.text = "$param1"
+        binding.textPrice.text = "$param3"
+        get().load(param2).into(binding.imageDetail)
+
     }
 
     companion object {

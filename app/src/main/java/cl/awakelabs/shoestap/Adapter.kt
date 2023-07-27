@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 
 class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
     var listaCalzado = mutableListOf<Calzado>()
-    //var callBack: Shoes? = null
+    var callBack: Shoes? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,6 +38,7 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
             binding.txPrice.text = calzado.price.toString()
             binding.cardProduct.setOnClickListener {
 
+                callBack?.showShoes(calzado)
             }
 
         }
@@ -52,6 +53,13 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
         this.listaCalzado = listShoes.toMutableList()
 
     }
+    interface Shoes {
+        //fun showShoes(calzado: Calzado)
+        fun showShoes(calzado: Calzado) {
+
+        }
+
+    }
 
 }
 
@@ -59,7 +67,3 @@ private fun Adapter.ViewHolder.bind(item: Calzado) {
 
 }
 
-interface Shoes {
-    fun showShoes(text: String)
-
-}
